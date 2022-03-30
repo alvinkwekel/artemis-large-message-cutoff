@@ -28,28 +28,33 @@ class JmsTest {
     }
 
     @Test
-    void test1024kibLargeMessageSizeAndCompressionWith1044kibAsTextMessage() throws IOException, JMSException {
+    void test1024kibLargeMessageSizeAndCompressionWith1044kibTextMessage() throws IOException, JMSException {
         testTextMessage("in/1044kib.b64", 1048576, true);
     }
 
     @Test
-    void test1024kibLargeMessageSizeAndCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
+    void test1024kibLargeMessageSizeAndCompressionWith1044kibBytesMessage() throws IOException, JMSException {
         testBytesMessage("in/1044kib.b64", 1048576, true);
     }
 
     @Test
-    void test1024kibLargeMessageSizeWithoutCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
+    void test1024kibLargeMessageSizeWithoutCompressionWith1044kibBytesMessage() throws IOException, JMSException {
         testBytesMessage("in/1044kib.b64", 1048576, false);
     }
 
     @Test
-    void test512kibLargeMessageSizeAndCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
+    void test512kibLargeMessageSizeAndCompressionWith1044kibBytesMessage() throws IOException, JMSException {
         testBytesMessage("in/1044kib.b64", 524288, true);
     }
 
     @Test
-    void test2048kibLargeMessageSizeAndCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
+    void test2048kibLargeMessageSizeAndCompressionWith1044kibBytesMessage() throws IOException, JMSException {
         testBytesMessage("in/1044kib.b64", 2097152, true);
+    }
+
+    @Test
+    void test384kibLargeMessageSizeAndCompressionWith418kibBytesMessage() throws IOException, JMSException {
+        testBytesMessage("in/418kib.b64", 393216, true);
     }
 
     void testBytesMessage(String filePath, int minimalLargeMessageSize, boolean compressLargeMessage) throws IOException, JMSException {
