@@ -43,6 +43,11 @@ class JmsTest {
     }
 
     @Test
+    void test512kibLargeMessageSizeAndCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
+        testBytesMessage("in/1044kib.b64", 524288, true);
+    }
+
+    @Test
     void test2048kibLargeMessageSizeAndCompressionWith1044kibAsBytesMessage() throws IOException, JMSException {
         testBytesMessage("in/1044kib.b64", 2097152, true);
     }
